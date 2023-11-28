@@ -28,7 +28,7 @@ const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
 module.exports = {
     mode: 'production',
     entry: {
-        index: './src/index.tsx'
+        index: './src/index.ts'
     },
     output: {
         filename: '[name].js',
