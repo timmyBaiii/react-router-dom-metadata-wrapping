@@ -34,7 +34,10 @@ module.exports = {
         filename: '[name].js',
         path: paths.appBuild,
         clean: true,
-        publicPath: '/'
+        publicPath: '/',
+        library: {
+            type: 'commonjs-static',
+        }
     },
     // output: {
     //     filename: 'static/js/[name].[chunkhash].js',
@@ -66,7 +69,7 @@ module.exports = {
                     }
                 ]
             },
-            { 
+            {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: 'ts-loader'
@@ -127,7 +130,7 @@ module.exports = {
                 babelRuntimeEntryHelpers,
                 babelRuntimeRegenerator
             ]),
-            new TsconfigPathsPlugin({    
+            new TsconfigPathsPlugin({
                 extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.sass', '.scss', '.css']
             })
         ]
