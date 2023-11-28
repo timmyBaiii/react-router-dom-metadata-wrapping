@@ -20,7 +20,7 @@ interface ReactRouterDomMetadataWrappingPropsType {
 }
 
 interface ReactRouterDomMetadataWrappingType {
-    (payload: ReactRouterDomMetadataWrappingPropsType): ReactNode;
+    (payload: ReactRouterDomMetadataWrappingPropsType): JSX.Element | JSX.Element[];
 }
 
 declare const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType;
