@@ -26,7 +26,9 @@ const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx'
+    },
     output: {
         filename: 'static/js/[name].[chunkhash].js',
         path: paths.appBuild,
@@ -99,6 +101,9 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
+        alias: {
+            '@': path.resolve(__dirname, './src')
+        },
         plugins: [
             new ModuleScopePlugin(paths.appPath, [
                 reactRefreshRuntimeEntry,
