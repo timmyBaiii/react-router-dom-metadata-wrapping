@@ -4,22 +4,12 @@ import { RouteObject, useLocation, useRoutes } from 'react-router-dom';
 // utils
 import { isExternal } from '@/utils/validate';
 
+// types
+import { OnRouteBeforeResType } from './types';
+
 export interface RouterWaiterProps {
     routes: RouteObject[];
-    onRouteBefore?: OnRouteBeforeType
-}
-
-type OnRouteBeforeResType = string | void
-
-export interface OnRouteBeforeType {
-    (payload: {
-        pathname: string
-        meta: MetaType
-    }): OnRouteBeforeResType | Promise<OnRouteBeforeResType>
-}
-
-interface MetaType {
-    [propName: string]: any;
+    onRouteBefore?: OnRouteBeforeResType
 }
 
 const resolvePath = (routePath: any, basePath: string) => {
