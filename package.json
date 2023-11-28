@@ -1,9 +1,8 @@
 {
     "name": "react-router-dom-metadata-wrapping",
     "version": "1.0.1-1",
-    "main": "dist/index",
-    "license": "MIT",
     "author": "timbai",
+    "main": "dist/index",
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack-dev-server -c ./webpack.config.js",
         "build": "cross-env NODE_ENV=production webpack -c ./webpack.config.js"
@@ -14,10 +13,16 @@
         "react-router-dom",
         "metadata-wrapping"
     ],
+    "license": "MIT",
     "files": [
         "dist"
     ],
     "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "6.11.0"
+    },
+    "peerDependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "6.11.0"
