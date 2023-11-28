@@ -13,18 +13,22 @@ interface MetaType {
     [propName: string]: any;
 }
 
-type ReactRouterDomMetadataWrappingProps = {
+type ReactRouterDomMetadataWrappingPropsType = {
     routes: RouteObject[];
     onRouteBefore?: OnRouteBeforeResType
 }
 
-declare const ReactRouterDomMetadataWrapping: React.FC<ReactRouterDomMetadataWrappingProps>;
+interface ReactRouterDomMetadataWrappingType {
+    (payload: ReactRouterDomMetadataWrappingPropsType): JSX.Element;
+}
+
+declare const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType;
 
 export type {
     OnRouteBeforeResType,
     OnRouteBeforeType,
-    ReactRouterDomMetadataWrappingProps,
-    ReactRouterDomMetadataWrapping
+    ReactRouterDomMetadataWrappingPropsType,
+    ReactRouterDomMetadataWrappingType
 }
 
 
