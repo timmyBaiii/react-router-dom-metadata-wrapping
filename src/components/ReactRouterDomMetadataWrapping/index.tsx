@@ -7,7 +7,7 @@ import { isExternal } from '@/utils/validate';
 // types
 import { OnRouteBeforeResType } from './types';
 
-export interface RouterWaiterProps {
+type RouterWaiterProps = {
     routes: RouteObject[];
     onRouteBefore?: OnRouteBeforeResType
 }
