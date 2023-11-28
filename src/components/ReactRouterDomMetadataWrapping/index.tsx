@@ -5,7 +5,7 @@ import { useLocation, useRoutes } from 'react-router-dom';
 import { isExternal } from '@/utils/validate';
 
 // types
-import { OnRouteBeforeResType, ReactRouterDomMetadataWrappingPropsType } from './types';
+import { ReactRouterDomMetadataWrappingPropsType } from './types';
 
 const resolvePath = (routePath: any, basePath: string) => {
     if (isExternal(routePath)) {
