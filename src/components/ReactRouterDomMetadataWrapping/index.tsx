@@ -24,7 +24,7 @@ const resolvePath = (routePath: any, basePath: string) => {
     }
 };
 
-const ReactRouterDomMetadataWrapping: React.FC<ReactRouterDomMetadataWrappingPropsType> = ({ routes, onRouteBefore }) => {
+const ReactRouterDomMetadataWrapping = ({ routes, onRouteBefore }: ReactRouterDomMetadataWrappingPropsType) => {
     const element = useRoutes(routes);
     const location = useLocation();
 
