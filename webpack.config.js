@@ -77,6 +77,10 @@ module.exports = {
                     'postcss-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.js$/,
+                loader: 'source-map-loader'
             }
         ]
     },
