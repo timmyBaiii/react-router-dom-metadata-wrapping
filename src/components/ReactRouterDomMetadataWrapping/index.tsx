@@ -24,64 +24,64 @@ const resolvePath = (routePath: any, basePath: string) => {
     }
 };
 
-const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType = ({
+const ReactRouterDomMetadataWrapping: React.FC<ReactRouterDomMetadataWrappingPropsType> = ({
     routes,
     onRouteBefore
   }: ReactRouterDomMetadataWrappingPropsType) => {
     const element = useRoutes(routes);
     const location = useLocation();
 
-    const extractRoutes = (routes: any, parentPath = '') => {
-        const result = [];
+    // const extractRoutes = (routes: any, parentPath = '') => {
+    //     const result = [];
 
-        for (const route of routes) {
-            const { path, children, meta } = route;
+    //     for (const route of routes) {
+    //         const { path, children, meta } = route;
 
-            const fullPath = resolvePath(path, parentPath);
+    //         const fullPath = resolvePath(path, parentPath);
 
-            if (children) {
-                const childRoutes: any = extractRoutes(children, fullPath);
-                result.push(...childRoutes);
-            }
-            else {
-                result.push({
-                    fullPath,
-                    meta
-                });
-            }
-        }
+    //         if (children) {
+    //             const childRoutes: any = extractRoutes(children, fullPath);
+    //             result.push(...childRoutes);
+    //         }
+    //         else {
+    //             result.push({
+    //                 fullPath,
+    //                 meta
+    //             });
+    //         }
+    //     }
 
-        return result;
-    };
+    //     return result;
+    // };
 
-    useEffect(() => {
-        if (element?.props?.match?.route?.children && element?.props?.match?.pathnameBase && onRouteBefore) {
-            const routeList = extractRoutes(element?.props?.match?.route.children, element?.props?.match.pathnameBase);
+    // useEffect(() => {
+    //     if (element?.props?.match?.route?.children && element?.props?.match?.pathnameBase && onRouteBefore) {
+    //         const routeList = extractRoutes(element?.props?.match?.route.children, element?.props?.match.pathnameBase);
 
-            let activeRoute = 0;
-            for (let i = 0; i < routeList.length; i++) {
-                if (routeList[i].fullPath === location.pathname) {
-                    activeRoute = i;
-                    break;
-                }
-            }
+    //         let activeRoute = 0;
+    //         for (let i = 0; i < routeList.length; i++) {
+    //             if (routeList[i].fullPath === location.pathname) {
+    //                 activeRoute = i;
+    //                 break;
+    //             }
+    //         }
 
-            onRouteBefore(routeList[activeRoute]);
-        }
-        else {
-            const pathnameBase = element?.props?.match?.pathnameBase;
-            const meta = element?.props?.match?.route?.meta;
+    //         onRouteBefore(routeList[activeRoute]);
+    //     }
+    //     else {
+    //         const pathnameBase = element?.props?.match?.pathnameBase;
+    //         const meta = element?.props?.match?.route?.meta;
 
-            if (pathnameBase && meta && onRouteBefore) {
-                const result = {
-                    pathname: pathnameBase,
-                    meta: meta
-                };
+    //         if (pathnameBase && meta && onRouteBefore) {
+    //             const result = {
+    //                 pathname: pathnameBase,
+    //                 meta: meta
+    //             };
 
-                onRouteBefore(result);
-            }
-        }
-    }, [location.pathname]);
+    //             onRouteBefore(result);
+    //         }
+    //     }
+    // }, [location.pathname]);
 
     return element;
 };
