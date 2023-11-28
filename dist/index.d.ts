@@ -13,7 +13,7 @@ interface MetaType {
     [propName: string]: any;
 }
 
-type ReactRouterDomMetadataWrappingPropsType = {
+interface ReactRouterDomMetadataWrappingPropsType {
     routes: RouteObject[];
     onRouteBefore?: OnRouteBeforeResType
 }
