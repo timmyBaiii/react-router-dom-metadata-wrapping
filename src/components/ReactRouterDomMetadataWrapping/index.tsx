@@ -24,7 +24,7 @@ const resolvePath = (routePath: any, basePath: string) => {
     }
 };
 
-const RouterWaiter: React.FC<ReactRouterDomMetadataWrappingPropsType> = ({ routes, onRouteBefore }) => {
+const ReactRouterDomMetadataWrapping: React.FC<ReactRouterDomMetadataWrappingPropsType> = ({ routes, onRouteBefore }) => {
     const element = useRoutes(routes);
     const location = useLocation();
 
@@ -83,4 +83,4 @@ const RouterWaiter: React.FC<ReactRouterDomMetadataWrappingPropsType> = ({ route
     return element;
 };
 
-export default RouterWaiter;
+export default ReactRouterDomMetadataWrapping;
