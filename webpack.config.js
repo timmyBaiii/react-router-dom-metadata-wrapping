@@ -79,7 +79,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|ts)$/,
                 loader: 'source-map-loader'
             }
         ]
