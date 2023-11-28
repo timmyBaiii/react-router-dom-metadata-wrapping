@@ -5,7 +5,7 @@ import { useLocation, useRoutes } from 'react-router-dom';
 import { isExternal } from '@/utils/validate';
 
 // types
-import { ReactRouterDomMetadataWrappingPropsType } from './types';
+import { ReactRouterDomMetadataWrappingPropsType, ReactRouterDomMetadataWrappingType } from './types';
 
 const resolvePath = (routePath: any, basePath: string) => {
     if (isExternal(routePath)) {
@@ -24,7 +24,10 @@ const resolvePath = (routePath: any, basePath: string) => {
     }
 };
 
-const ReactRouterDomMetadataWrapping = ({ routes, onRouteBefore }: ReactRouterDomMetadataWrappingPropsType) => {
+const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType = ({
+    routes,
+    onRouteBefore
+  }: ReactRouterDomMetadataWrappingPropsType) => {
     const element = useRoutes(routes);
     const location = useLocation();
 

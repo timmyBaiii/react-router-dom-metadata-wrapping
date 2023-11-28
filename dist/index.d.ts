@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { RouteObject } from 'react-router-dom';
 
 type OnRouteBeforeResType = OnRouteBeforeType
@@ -14,13 +13,13 @@ interface MetaType {
     [propName: string]: any;
 }
 
-interface ReactRouterDomMetadataWrappingPropsType {
+export interface ReactRouterDomMetadataWrappingPropsType {
     routes: RouteObject[];
     onRouteBefore?: OnRouteBeforeResType
 }
 
-interface ReactRouterDomMetadataWrappingType {
-    (payload: ReactRouterDomMetadataWrappingPropsType): JSX.Element;
+export interface ReactRouterDomMetadataWrappingType {
+    (payload: ReactRouterDomMetadataWrappingPropsType): JSX.Element | null;
 }
 
 declare const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType;
@@ -28,8 +27,8 @@ declare const ReactRouterDomMetadataWrapping: ReactRouterDomMetadataWrappingType
 export type {
     OnRouteBeforeResType,
     OnRouteBeforeType,
-    ReactRouterDomMetadataWrappingPropsType,
-    ReactRouterDomMetadataWrappingType
+    // ReactRouterDomMetadataWrappingPropsType,
+    // ReactRouterDomMetadataWrappingType
 }
 
 
