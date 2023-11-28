@@ -4,6 +4,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack');
 const paths = require('./paths');
 
@@ -30,11 +31,17 @@ module.exports = {
         index: './src/index.tsx'
     },
     output: {
-        filename: 'static/js/[name].[chunkhash].js',
+        filename: '[name].js',
         path: paths.appBuild,
         clean: true,
         publicPath: '/'
     },
+    // output: {
+    //     filename: 'static/js/[name].[chunkhash].js',
+    //     path: paths.appBuild,
+    //     clean: true,
+    //     publicPath: '/'
+    // },
     devServer: {
         open: true,
         port: 3000,
@@ -80,10 +87,6 @@ module.exports = {
                     'postcss-loader',
                     'sass-loader'
                 ]
-            },
-            {
-                test: /\.(js|ts)$/,
-                loader: 'source-map-loader'
             }
         ]
     },
@@ -97,7 +100,15 @@ module.exports = {
         new webpack.DefinePlugin({
             'process': JSON.stringify(process.env.NODE_ENV)
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/components/ReactRouterDomMetadataWrapping/types.ts'),
+                    to: path.resolve(__dirname, './dist/index.d.ts')
+                }
+            ]
+        })
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
