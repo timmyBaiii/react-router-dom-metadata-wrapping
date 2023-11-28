@@ -1,6 +1,6 @@
-export type OnRouteBeforeResType = OnRouteBeforeType
+type OnRouteBeforeResType = OnRouteBeforeType
 
-export interface OnRouteBeforeType {
+interface OnRouteBeforeType {
     (payload: {
         pathname: string
         meta: MetaType
@@ -9,4 +9,9 @@ export interface OnRouteBeforeType {
 
 interface MetaType {
     [propName: string]: any;
+}
+
+export type {
+    OnRouteBeforeResType,
+    OnRouteBeforeType
 }
