@@ -23,6 +23,7 @@ declare const ReactRouterDomMetadataWrapping: React.FC<ReactRouterDomMetadataWra
 export type {
     OnRouteBeforeResType,
     OnRouteBeforeType,
+    ReactRouterDomMetadataWrappingProps,
     ReactRouterDomMetadataWrapping
 }
 

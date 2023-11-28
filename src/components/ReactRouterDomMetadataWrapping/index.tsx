@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
-import { RouteObject, useLocation, useRoutes } from 'react-router-dom';
+import { useLocation, useRoutes } from 'react-router-dom';
 
 // utils
 import { isExternal } from '@/utils/validate';
 
 // types
-import { OnRouteBeforeResType } from './types';
-
-type RouterWaiterProps = {
-    routes: RouteObject[];
-    onRouteBefore?: OnRouteBeforeResType
-}
+import { OnRouteBeforeResType, ReactRouterDomMetadataWrappingProps } from './types';
 
 const resolvePath = (routePath: any, basePath: string) => {
     if (isExternal(routePath)) {
@@ -29,7 +24,7 @@ const resolvePath = (routePath: any, basePath: string) => {
     }
 };
 
-const RouterWaiter: React.FC<RouterWaiterProps> = ({ routes, onRouteBefore }) => {
+const RouterWaiter: React.FC<ReactRouterDomMetadataWrappingProps> = ({ routes, onRouteBefore }) => {
     const element = useRoutes(routes);
     const location = useLocation();
 
