@@ -4,7 +4,8 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
+const WebpackNodeExternals = require('webpack-node-externals')
 const webpack = require('webpack');
 const paths = require('./paths');
 
@@ -137,5 +138,13 @@ module.exports = {
     },
     performance: {
         hints: false
-    }
+    },
+    externalsPresets: {
+        node: true
+    },
+    externals: [
+        WebpackNodeExternals({
+            allowlist: []
+        })
+    ]
 }
