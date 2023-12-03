@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
@@ -141,6 +142,18 @@ module.exports = {
     },
     externalsPresets: {
         node: true
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserWebpackPlugin({
+                terserOptions: {
+                    compress: {
+                        pure_funcs: ['console.log']
+                    }
+                }
+            })
+        ]
     },
     externals: [
         WebpackNodeExternals({
